@@ -1,3 +1,14 @@
 <template name="Homepage">
-  THIS IS THE HOMEPAGE
+    THIS IS THE HOMEPAGE
+    <div>These are users:</div>
+    <ul>
+        {{#each usersKED}}
+        <li>
+            <div>
+                {{name}}  {{surname}}
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
 </template>
