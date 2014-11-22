@@ -2,7 +2,16 @@
     <div class="container">
         <div class="login">
             {{>loginButtons}}
+            {{#if currentUser}}
+                PIERRE FERREIRA #37 VERONICA
+            {{else}}
+                NOT LOGGED IN
+            {{/if}}
         </div>
-        {{> yield}}
+        {{#if currentUser}}
+            {{> yield}}
+        {{else}}
+            PLEASE LOG IN!
+        {{/if}}
     </div>
 </template>

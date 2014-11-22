@@ -6,7 +6,12 @@ UsersKED.insert({
     }
 );
 UsersKED.insert({
-    name:'Peet',
+    name:'Piet',
     surname:'Ferf'
+    }
+);
+UsersKED.insert({
+    name:'Bet',
+    surname:'fdmf'
     }
 );
