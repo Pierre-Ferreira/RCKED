@@ -13,3 +13,7 @@ Router.route('/',{
     name: 'home',
     controller: 'HomeController'
 });
+Router.route('/help-confirm',{
+    name: 'help-confirm',
+    controller: 'HelpConfirmController'
+});

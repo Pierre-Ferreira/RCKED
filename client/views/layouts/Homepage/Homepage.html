@@ -1,23 +1,18 @@
 <template name="Homepage">
     <div>
-    <button style="height:75px; width:200px; background-color:red" type="button">HELP!</button>
+        <a class="btn btn-help btn-block btn-dynamic-props "  href="/help-confirm">HELP!</a>
     </div>
     <div>
-    <button style="height:75px; width:200px; background-color:orange" type="button">WARNING!</button>
+        <a class="btn btn-warning btn-block btn-dynamic-props "  href="">WARNING!</a>
     </div>
     <div>
-    <button style="height:75px; width:200px; background-color:green" type="button">PREVIOUS POSTS</button>
+        <a class="btn btn-prevpost btn-block btn-dynamic-props "  href="">PREVIOUS POSTS</a>
     </div>
-    THIS IS THE HOMEPAGE
-    <div>These are users:</div>
-    <ul>
-        {{#each usersKED}}
-        <li>
-            <div>
-                {{name}}  {{surname}}
-            </div>
-        </li>
-        {{/each}}
-    </ul>
 
+    <div>
+        <a href="AppUse">How to use this app.</a>
+    </div>
+    <div>
+        <a href="">2014 TEKTITEse</a>
+    </div>
 </template>
