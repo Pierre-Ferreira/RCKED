@@ -1,0 +1,17 @@
+<template name="MasterLayout">
+    <div class="container">
+        <div class="login">
+            {{>loginButtons}}
+            {{#if currentUser}}
+                <div>PIERRE FERREIRA</div> <div>#37 VERONICA</div>
+            {{else}}
+                NOT LOGGED IN
+            {{/if}}
+        </div>
+        {{#if currentUser}}
+            {{> yield}}
+        {{else}}
+            PLEASE LOG IN!
+        {{/if}}
+    </div>
+</template>

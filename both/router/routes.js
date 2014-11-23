@@ -11,9 +11,13 @@ Router.configure({
 
 Router.route('/',{
     name: 'home',
-    controller: 'HomeController'
+    controller: 'HomepageController'
 });
-Router.route('/help-confirm',{
-    name: 'help-confirm',
+Router.route('/help_confirm',{
+    name: 'help_confirm',
     controller: 'HelpConfirmController'
 });
+Router.route('/help_chat_main',{
+    name: 'help_chat_main',
+    controller: 'HelpChatMainController'
+})
