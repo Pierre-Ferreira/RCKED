@@ -1,17 +1,32 @@
 UsersKED = new Meteor.Collection('usersKED');
 UsersKED.remove({});
 UsersKED.insert({
-    name:'Pierre',
-    surname:'Ferreira'
+    _id: 'AYmDNzzafst9iDRqa',
+    name: 'Pierre',
+    surname: 'Ferreira',
+    address: '#37 Veronica'
     }
 );
 UsersKED.insert({
-    name:'Piet',
-    surname:'Ferf'
+    name: 'John',
+    surname: 'Doe',
+    address: '#15 Veronica str'
     }
 );
 UsersKED.insert({
     name:'Bet',
-    surname:'fdmf'
+    surname:'fdvcccmf'
     }
 );
+HelpPostsINIT = new Meteor.Collection('helpPosts');
+var exist = HelpPostsINIT.findOne({postNumber: 100001})
+if (exist) {
+    console.log(exist);
+} else {
+    userMain = UsersKED.findOne({name:'Pierre'});
+    userId = userMain._id;
+    HelpPostsINIT.insert({
+        postNumber: 100001,
+        initiator: userId
+    });
+}

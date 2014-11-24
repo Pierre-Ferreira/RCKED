@@ -2,7 +2,10 @@
 /* Client and Server Routes*/
 /****************/
 Router.configure({
-    layoutTemplate: 'MasterLayout'
+    layoutTemplate: 'MasterLayout',
+    data: function() {
+            return UsersKED.findOne({name: 'Pierre'})
+        }
 });
 
 //Router.map(function() {

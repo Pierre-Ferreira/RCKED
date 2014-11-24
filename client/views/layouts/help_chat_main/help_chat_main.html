@@ -1,19 +1,35 @@
 <template name='help_chat_main'>
     <a class='btn' href='/'>Home</a>
-<div style="height: 200px; overflow-y: scroll;" id="section">
-<p style="">TEST</p>
-<p class="bubbleLeft">
-London is the capital city of England. It is the most populous city in the United Kingdom,
-with a metropolitan area of over 13 million inhabitants.
+<div class="chatBox" id="section">
+<p class="txtLeftAlign postInfo">Pierre @ #37 Veronica (24:32 - 29 Oct 2014)</p>
+<p class="bubbleLeft txtLeftAlign" style="color: white">
+    Initiator posts
 </p>
-<p class="bubbleRight">
-Standing on the River Thames, London has been a major settlement for two millennia,
-its history going back to its founding by the Romans, who named it Londinium.
+<p class="txtRightAlign postInfo">BeagleWatch @ Controlroom (24:33 - 29 Oct 2014)</p>
+<p class="bubbleRight txtLeftAlign" style="float:right;">
+    Responders posts
 </p>
+    {{#each posts}}
+    {{#if initiatorPost}}
+        <p class="bubbleLeft txtLeftAlign" style="color: white">
+            {{postMessage}}
+        </p>
+    {{else}}
+         <p class="bubbleRight txtLeftAlign" style="float:right;">
+            {{postMessage}}
+        </p>       
+    {{/if}}
+    {{/each}}
 </div>
+<form>   
 <div class="form-group">
-  <input type="text" class="form-control" id="usr">
-</div>    
+  <input type="text" class="form-control" placeholder = "Enter message..." id="inputmessage">
+<button type="submit" class="btn btn-info btn-lg" name="postmessage">
+POST
+    </button>
+</div>
+</form>     
+<div>{{name}} {{surname}} tag</div>
 <div id="footer">
 Copyright © W3Schools.com
 </div>

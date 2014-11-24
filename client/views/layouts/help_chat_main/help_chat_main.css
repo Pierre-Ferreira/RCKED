@@ -2,7 +2,7 @@
 {
 position: relative;
 text-align: left;
-width: 350px;
+width: 300px;
 padding: 0px;
 background: #ACFFFF;
 -webkit-border-radius: 10px;
@@ -16,14 +16,14 @@ border: #009DFF solid 2px;
 content: '';
 position: absolute;
 border-style: solid;
-border-width: 7px 0 7px 16px;
+border-width: 3px 0 3px 10px;
 border-color: transparent #ACFFFF;
 display: block;
 width: 0;
 z-index: 1;
 margin-top: -7px;
-right: -16px;
-top: 50%;
+right: -9px;
+top: 60%;
 }
 
 .bubbleRight:before 
@@ -31,20 +31,20 @@ top: 50%;
 content: '';
 position: absolute;
 border-style: solid;
-border-width: 8px 0 8px 17px;
+border-width: 4px 0 4px 11px;
 border-color: transparent #009DFF;
 display: block;
 width: 0;
 z-index: 0;
 margin-top: -8px;
-right: -19px;
-top: 50%;
+right: -12px;
+top: 60%;
 }
 
 .bubbleLeft
 {
 position: relative;
-width: 350px;
+width: 300px;
 padding: 0px;
 background: #FF0000;
 -webkit-border-radius: 10px;
@@ -58,14 +58,14 @@ border: #984400 solid 2px;
 content: '';
 position: absolute;
 border-style: solid;
-border-width: 5px 15px 5px 0;
-border-color: transparent #984400;
+border-width: 3px 10px 3px 0;
+border-color: transparent #FF0000;
 display: block;
 width: 0;
 z-index: 1;
-margin-top: -5px;
-left: -15px;
-top: 50%;
+margin-top: -7px;
+left: -9px;
+top: 60%;
 }
 
 .bubbleLeft:before 
@@ -73,12 +73,45 @@ top: 50%;
 content: '';
 position: absolute;
 border-style: solid;
-border-width: 6px 16px 6px 0;
-border-color: transparent #FF0000;
+border-width: 4px 11px 4px 0;
+border-color: transparent #984400;
 display: block;
 width: 0;
 z-index: 0;
 margin-top: -8px;
-left: -19px;
-top: 50%;
+left: -12px;
+top: 60%;
+}
+
+.txtLeftAlign
+{
+text-align:left;
+margin-top:1px;
+margin-bottom:0px;
+padding:0px;
+}
+.txtRightAlign
+{
+text-align:right;
+margin-top:1px;
+margin-bottom:0px;
+padding:0px;
+}
+.postInfo
+{
+font-size: 11px;
+margin-top:2px;
+margin-bottom:-5px;
+padding:0px;
+}
+.chatBox
+{
+width: 350px; 
+height: 200px;
+overflow-y: scroll;
+padding: 20px; 
+padding-top: 0px;
+border-style: solid; 
+margin-top:1px;
+margin-bottom:1px;
 }
