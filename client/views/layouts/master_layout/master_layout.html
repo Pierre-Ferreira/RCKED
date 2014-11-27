@@ -1,17 +1,27 @@
 <template name="MasterLayout">
-    <div class="container">
+    <div class="container header_Format">
         <div class="login">
-            {{>loginButtons}}
-            {{#if currentUser}}
-                <div>{{name}} PIERRE FERREIRA @ #37 VERONICA</div>
-            {{else}}
-                NOT LOGGED IN
-            {{/if}}
-        </div>
+            {{>header}}
+        </div>    
         {{#if currentUser}}
             {{> yield}}
-        {{else}}
-            PLEASE LOG IN!
         {{/if}}
+    </div>
+</template>
+
+<template name="header">
+    <div class="navbar">
+        <div class="navbar-inner"> 
+            <div class="container">
+                 <div class="nav pull-right" style="text-align:center">
+                   <div>KLOOFENDAL RESIDENTS ALERT</div> 
+                    {{>loginButtons}}
+                    {{#if currentUser}}
+                    {{else}}
+                        PLEASE LOG IN
+                    {{/if}}
+                </div>
+            </div>
+        </div>
     </div>
 </template>

@@ -1,36 +1,52 @@
-<template name='help_chat_main'>
-    <a class='btn' href='/'>Home</a>
-<div class="chatBox" id="section">
-<p class="txtLeftAlign postInfo">Pierre @ #37 Veronica (24:32 - 29 Oct 2014)</p>
-<p class="bubbleLeft txtLeftAlign" style="color: white">
-    Initiator posts
-</p>
-<p class="txtRightAlign postInfo">BeagleWatch @ Controlroom (24:33 - 29 Oct 2014)</p>
-<p class="bubbleRight txtLeftAlign" style="float:right;">
-    Responders posts
-</p>
-    {{#each posts}}
-    {{#if initiatorPost}}
-        <p class="bubbleLeft txtLeftAlign" style="color: white">
-            {{postMessage}}
-        </p>
-    {{else}}
-         <p class="bubbleRight txtLeftAlign" style="float:right;">
-            {{postMessage}}
-        </p>       
-    {{/if}}
-    {{/each}}
-</div>
-<form>   
-<div class="form-group">
-  <input type="text" class="form-control" placeholder = "Enter message..." id="inputmessage">
-<button type="submit" class="btn btn-info btn-lg" name="postmessage">
-POST
-    </button>
-</div>
-</form>     
-<div>{{name}} {{surname}} tag</div>
+<template name='help_chat_main'>    
+<div class="container">
+    <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1" style="margin-left:0px;">
+        <div class="col-xs-12 col-md-12">
+        	<div class="panel panel-default">
+                <div class="panel-heading top-bar">
+                    <div class="col-md-8 col-xs-8">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> <h3><a href="/">BACK TO ALERT BUTTONS</a></h3></h3>
+                    </div>
+                    <div class="col-md-4 col-xs-4" style="text-align: right;">
+                        <a href="#"><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a>
+                        <a href="#"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body msg_container_base">
+                {{#each posts}}
+                {{#if initiatorPost}}    
+                    <div class="row msg_container base_initiator">
+                        <div class="col-md-10 col-xs-10">
+                            <div class="messageBubbleLeft msg_initiator">
+                                <p> {{postMessage}}</p>
+                                <metaPost>{{postMetaStr}}</metaPost>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="row msg_container base_responder">
+                        <div class="col-md-10 col-xs-10">
+                            <div class="messageBubbleRight msg_responder">
+                                <p> {{postMessage}}</p>
+                                <metaPost>{{postMetaStr}}</metaPost>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                {{/each}}
+                </div>
+                <form>   
+                    <small>Keep messages concise</small>    
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder = "Write your message here..." id="inputmessage">
+                            <button type="submit" class="btn btn-info btn-lg" name="postmessage">POST</button>
+                        </div>
+                </form>     
+    		</div>
+        </div>
+    </div>
+</div>   
 <div id="footer">
-Copyright © W3Schools.com
+Copyright © TektiteSE
 </div>
 </template>

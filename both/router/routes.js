@@ -8,13 +8,13 @@ Router.configure({
         }
 });
 
-//Router.map(function() {
-//    this.route('Homepage  ',{path: '/'})
-//});
-
-Router.route('/',{
-    name: 'home',
+Router.route('/home_page',{
+    name: 'home_page',
     controller: 'HomepageController'
+});
+Router.route('/',{
+    name: 'alert_buttons',
+    controller: 'AlertButtonsController'
 });
 Router.route('/help_confirm',{
     name: 'help_confirm',
@@ -23,4 +23,8 @@ Router.route('/help_confirm',{
 Router.route('/help_chat_main',{
     name: 'help_chat_main',
     controller: 'HelpChatMainController'
+})
+Router.route('/users_profile',{
+    name: 'users_profile',
+    controller: 'UsersProfileController'
 })

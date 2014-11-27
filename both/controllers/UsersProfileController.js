@@ -1,7 +1,7 @@
-HomepageController = RouteController.extend({
-    template: 'home_page',
+UsersProfileController = RouteController.extend({
+    template: 'users_profile',
 });
-HomepageController.helpers({
+UsersProfileController.helpers({
      usersKED: function() {
 //        console.log(UsersKED.find().count());
 //        return UsersKED.find();

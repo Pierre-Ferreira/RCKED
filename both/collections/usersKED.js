@@ -8,6 +8,7 @@ UsersKED.insert({
     }
 );
 UsersKED.insert({
+    _id: '3nyuGjWiAuEi2orSg',
     name: 'John',
     surname: 'Doe',
     address: '#15 Veronica str'
