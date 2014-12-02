@@ -3,9 +3,6 @@
 /****************/
 Router.configure({
     layoutTemplate: 'MasterLayout',
-    data: function() {
-            return UsersKED.findOne({name: 'Pierre'})
-        }
 });
 
 Router.route('/home_page',{
@@ -27,4 +24,8 @@ Router.route('/help_chat_main',{
 Router.route('/users_profile',{
     name: 'users_profile',
     controller: 'UsersProfileController'
+})
+Router.route('/chat_active_list',{
+    name: 'chat_active_list',
+    controller: 'ChatActiveListController'
 })
