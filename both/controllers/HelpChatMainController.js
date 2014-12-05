@@ -63,6 +63,8 @@ HelpChatMainController.events({
           var dateTime = new Date;
           var post = {postUserID:userId, datetime: dateTime, postMessage: message};
           HelpChatCollection.update({_id: Session.get("currPostID")},{$push:{posts:post}});
+//          Meteor.call("sendTwillioSMS", "something", "something");
+          Meteor.call("sendPlivoSMS", message, "something");
       }
 // Clear the form
       var form = tmpl.find('form');

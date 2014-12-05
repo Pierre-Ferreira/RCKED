@@ -1,0 +1,8 @@
+{
+  "packages": {
+    "moment": {},
+    "twilio-meteor": {},
+    "plivo-meteor": {},
+    "npm": {}
+  }
+}

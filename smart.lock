@@ -1,0 +1,33 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "moment": {},
+      "twilio-meteor": {},
+      "plivo-meteor": {},
+      "npm": {}
+    },
+    "packages": {
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.8.1",
+        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
+      },
+      "twilio-meteor": {
+        "git": "https://github.com/andreioprisan/twilio-meteor.git",
+        "tag": "v1.1.0",
+        "commit": "7f36ec52fc334caf8b740320524df62afce890e1"
+      },
+      "plivo-meteor": {
+        "git": "https://github.com/andreioprisan/plivo-meteor.git",
+        "tag": "v1.0.0",
+        "commit": "2c32df8b835dc4c6884acc6ec2a855cb5cba2b70"
+      },
+      "npm": {
+        "git": "https://github.com/arunoda/meteor-npm.git",
+        "tag": "v0.2.6",
+        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
+      }
+    }
+  }
+}
