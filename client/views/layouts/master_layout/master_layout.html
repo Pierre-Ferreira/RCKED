@@ -1,14 +1,21 @@
 <template name="MasterLayout">
-    <div class="container header_Format">
+    <div class="container header_Format container-fluid">
         <div class="login">
             {{>header}}
         </div>    
+            {{>navButtons}}
         {{#if currentUser}}
             {{> yield}}
         {{/if}}
     </div>
 </template>
-
+<template name="navButtons">
+    <div>
+        <a class="btn btnNav"  href="/">Alert Buttons</a>
+        <a class="btn btnNav"  href="/chat_active_list">Active Chats</a>
+        <a class="btn btnNav"  href="/chat_old_list">Old Chats</a>
+    </div>
+</template>
 <template name="header">
     <div class="navbar">
         <div class="navbar-inner"> 

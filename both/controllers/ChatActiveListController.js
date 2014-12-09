@@ -5,8 +5,13 @@ ChatActiveListController = RouteController.extend({
 ChatActiveListController.helpers({
      chatsInfo: function() {
          activeChats = HelpChatCollection.find({activeInd: true},{sort: {_id: -1}});
-//Convert the cursor to an array
+//Convert the cursor to an array.
          activeChatsArr = activeChats.fetch();
+//Sort the objects in the array by _id with this function.
+         activeChatsArr.sort(function(a, b) {
+            return b._id - a._id;
+         });
+//Get the length of the array.
          activeChatsCnt = activeChatsArr.length;
          for(i=0; i< activeChatsCnt; i++){
              console.log("****");
@@ -42,7 +47,7 @@ ChatActiveListController.helpers({
 });
 ChatActiveListController.events({
     'click .chats': function(evt, tmp) {
-//        alert(evt.target.id);
-        Session.set("currPostID",evt.target.id);
+        console.dir(evt);
+        Session.set("currPostID",evt.currentTarget.id);
     }
 })

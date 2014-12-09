@@ -3,6 +3,22 @@ body{
     position: relative;
     bottom: 0;
 }
+
+#inputMsg {
+    margin-top: 1px;
+    width: 70%;   
+    font-size: 20px;
+}
+#clrMsg {
+    height: 75px;     
+    width: 10px;
+    font-size: 10px;
+}
+#sendMsg {
+    height: 75px;
+    width: 10px;
+    font-size: 15px;
+}
 .col-md-2, .col-md-10{
     padding:0;
 }
@@ -14,7 +30,7 @@ body{
     position:relative;
     float:'';
     margin-left:1px;
-    width: 350px;
+    width: inherit;
 }
 .chat-window > div > .panel{
     border-radius: 5px 5px 0 0;
@@ -27,7 +43,7 @@ body{
   margin: 0;
   padding: 0 10px 10px;
   max-height:300px;
-  height: 200px;
+  height: 250px;
   overflow-x:hidden;
 }
 .top-bar {
@@ -37,11 +53,12 @@ body{
   padding: 1px;
   position: relative;
   overflow: hidden;
+  height: 50px;
 }
 .msg_initiator{
     padding-left: 5px !important;
-    margin-left:20px;
-    padding-bottom:1px  !important;
+    margin-left: 0px;
+    padding-bottom: 1px  !important;
 }
 .msg_responder{
     margin-right:1px;
@@ -222,3 +239,7 @@ img {
     bottom:0;
 }
 
+.msgForm {
+    padding: 1px;
+    margin: 1px;
+}

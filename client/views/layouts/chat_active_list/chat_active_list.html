@@ -1,11 +1,13 @@
 <template name="chat_active_list">
-<a href="/">YOU ARE HERE INSIDE NOW!!</a>
     {{#each chatsInfo}}
-    <div>
-        <a class = "chats" id={{_id}} href="/help_chat_main">
-            {{_id}} INITIATOR: {{initiatorName}} FROM: {{streetAddr}}
-            TIME: {{dispCreatedDate}}
-            No of Posts: {{chatPostsCnt}} Last Post: {{dispLastPostDate}}
+    <div id={{_id}} class = "chats" >
+        <a href="/help_chat_main">
+            <div class="chatNo">CHAT #{{_id}}</div> 
+            <div>Initiator: <div class="inline info">{{initiatorName}}</div></div>
+            <div>From: <div class="inline info">{{streetAddr}}</div></div>
+            <div>Time: <div class="inline info">{{dispCreatedDate}}</div></div>
+            <div>No of Posts: <div class="inline info">{{chatPostsCnt}}</div></div>
+            <div>Last Post: <div class="inline info">{{dispLastPostDate}}</div></div>
         </a>
     </div>
     {{/each}}

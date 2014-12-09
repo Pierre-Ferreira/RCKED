@@ -1,6 +1,20 @@
 .header_Format {
-    width:350px;
+    width: inherit;
 }
-body {
-    background-color: LIGHTSKYBLUE;
+.navbar{
+    margin-bottom: 1px;
 }
+.btnNav {
+  width: 22%;
+  border-color:blue;border-width:1px;border-style:solid;
+  display:inline-block;
+  margin:2%;
+  margin-left:auto;
+  margin-right:auto;
+   
+    height: 30px;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight:bold;
+}
+

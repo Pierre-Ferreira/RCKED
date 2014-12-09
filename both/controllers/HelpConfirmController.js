@@ -40,12 +40,14 @@ HelpConfirmController.events({
             postMessage: 'HELP!',
         }
         HelpChatCollection.update({_id: doc._id},{$push:{posts:firstPost}});
-    };
 // Call the SMS function
-    Meteor.call('sendBatchSMS','NOTHING',function(err, results){
-        console.log('err: '+err);
-        console.log('results: '+JSON.parse(results.content));
-    })
+        Meteor.call("sendPlivoSMS", postMessage, Meteor.userId());
+    };
+
+//    Meteor.call('sendBatchSMS','NOTHING',function(err, results){
+//        console.log('err: '+err);
+//        console.log('results: '+JSON.parse(results.content));
+//    })
 //    console.log("type: " + type);
 }
 });

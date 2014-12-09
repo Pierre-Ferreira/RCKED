@@ -24,33 +24,26 @@ Meteor.methods({
               }
         });
     },
-    'sendPlivoSMS':function(param1, param2) {
-         
-        
+    'sendPlivoSMS':function(messageSMS, userID) {
+         var messageStr = "";
+         senderProfile = Meteor.users.findOne({_id:userID});
+         senderName = senderProfile.profile.userName;
+         senderAddrNo = senderProfile.profile.userAddrNo;
+         senderAddrStr = senderProfile.profile.userAddrStreet;
+         messageStr = senderName+" @ " +senderAddrNo+" "+senderAddrStr+":"+messageSMS;
+//messageStr = messageSMS;
          var PlivoR = Meteor.require('plivo-node');
          plivo = PlivoR.RestAPI({
             authId: "MAMZHIZTNIMDM1NZLKZJ",
             authToken: "MzI1MDFjYWVlNmY2YjZmMzlhMTc5MWM2ZGQ4Y2Nk",
          });
-//        var p = plivo.RestAPI(require('./config'));  //A BETTER WAY SO INVESTIGATE https://github.com/plivo/plivo-examples-node/commit/163f28180b99c8af93d97adb1e2e2bd360453760
-//        var params = {
-//            'src': '27105008055', // Caller Id
-//            'dst' : '27721562697', // User Number to Call
-//            'text' : param1+' '+i,
-//            'type' : "sms",
-//        };
-//
-//        plivo.send_message(params, function (status, response) {
-//            console.log('Status: ', status);
-//            console.log('API Response:\n', response);
-//        });
         var params = {
-            'src': '27105008055', // Caller Id
+            'src': '27821234567', // Caller Id
             'dst' : '27823298718', // User Number to Call
-            'text' : param1,
+            'text' : messageStr,
             'type' : "sms",
         };
-
+console.log("messageStr:"+messageStr);
         plivo.send_message(params, function (status, response) {
             console.log('Status: ', status);
             console.log('API Response:\n', response);

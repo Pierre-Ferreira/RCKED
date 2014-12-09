@@ -2,3 +2,20 @@
     border-width :thick;
     border-radius: 10px;
 }
+.chats {
+    outline: 3px solid black;
+    padding: 2px;
+    margin-bottom: 7px;
+}
+.chatNo{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+div.inline { 
+    display: inline;
+}
+div.info {
+    color: black;
+    font-weight: bold;
+}

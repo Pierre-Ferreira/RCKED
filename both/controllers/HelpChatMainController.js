@@ -52,19 +52,29 @@ HelpChatMainController.events({
         $(function(){
             $("#chatInFade").removeClass('hide');
         });
+          var inputSound = new buzz.sound('/sounds/beep7.mp3');
+ //         inputSound.play();
     },
 //'click [name=is_done]': function (e,tmpl){}
-  'submit form': function (evt, tmpl) {
+    'click #clrMsg': function(evt, tmpl){
+        evt.preventDefault();
+        tmpl.$("#inputMsg").val('');
+        var clrSound = new buzz.sound('/sounds/beep7.mp3');
+        clrSound.play();
+    },
+    'click #sendMsg': function (evt, tmpl) {
       console.log("Submitted");
       evt.preventDefault();
-      var message = $.trim(tmpl.find('input').value);
+//      var message = $.trim(tmpl.find('input').value);
+        var message = $.trim(tmpl.$("#inputMsg").val());
       if (message != "") {
           var userId = Meteor.userId();
           var dateTime = new Date;
           var post = {postUserID:userId, datetime: dateTime, postMessage: message};
           HelpChatCollection.update({_id: Session.get("currPostID")},{$push:{posts:post}});
-//          Meteor.call("sendTwillioSMS", "something", "something");
-          Meteor.call("sendPlivoSMS", message, "something");
+          Meteor.call("sendPlivoSMS", message, userId);
+          var sendSound = new buzz.sound('/sounds/beep6.mp3');
+          sendSound.play();
       }
 // Clear the form
       var form = tmpl.find('form');
