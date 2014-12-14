@@ -10,7 +10,7 @@
     </div>
 </template>
 <template name="navButtons">
-    <div>
+    <div style="text-align:center">
         <a class="btn btnNav"  href="/">Alert Buttons</a>
         <a class="btn btnNav"  href="/chat_active_list">Active Chats</a>
         <a class="btn btnNav"  href="/chat_old_list">Old Chats</a>
@@ -20,7 +20,10 @@
     <div class="navbar">
         <div class="navbar-inner"> 
             <div class="container">
-                 <div class="nav pull-right" style="text-align:center">
+                 <div style="text-align:center">
+                    <FORM class="resfreshBtn">
+                        <INPUT TYPE="button" onClick="history.go(0)" VALUE="Refresh Me">
+                    </FORM>     
                    <div>KLOOFENDAL RESIDENTS ALERT</div> 
                     {{>loginButtons}}
                     {{#if currentUser}}

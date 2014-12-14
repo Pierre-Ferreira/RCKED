@@ -1,25 +1,27 @@
-.chatList {
+.chatListOld {
     border-width :thick;
     border-radius: 10px;
+
 }
-.chats {
+.chatsOld {
     outline: 3px solid black;
     padding: 2px;
     margin-bottom: 7px;
+    background-color: #eaff00;
 }
-.chatNo{
+.chatNoOld{
     text-align: center;
     font-weight: bold;
     font-size: 20px;
 }
-div.inline {
+div.inlineOld {
     display: inline;
 }
-div.info {
+div.infoOld {
     color: black;
     font-weight: bold;
 }
-div.header{
+div.headerOld{
     font-weight: bold;
     text-align: center;
     font-size: 25px;

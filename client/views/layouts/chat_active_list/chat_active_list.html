@@ -1,8 +1,9 @@
 <template name="chat_active_list">
+    <div class='header'>ACTIVE CHATS</div>
     {{#each chatsInfo}}
     <div id={{_id}} class = "chats" >
         <a href="/help_chat_main">
-            <div class="chatNo">CHAT #{{_id}}</div> 
+            <div class="chatNo">CHAT #{{_id}}</div>
             <div>Initiator: <div class="inline info">{{initiatorName}}</div></div>
             <div>From: <div class="inline info">{{streetAddr}}</div></div>
             <div>Time: <div class="inline info">{{dispCreatedDate}}</div></div>

@@ -4,7 +4,11 @@ ChatActiveListController = RouteController.extend({
 });
 ChatActiveListController.helpers({
      chatsInfo: function() {
-         activeChats = HelpChatCollection.find({activeInd: true},{sort: {_id: -1}});
+         var dateNow = new Date();
+         console.log("dateNow: "+dateNow);
+         var dateLess24hr = new Date(moment(dateNow)-86400000);
+         console.log("dateLess24hr: "+dateLess24hr);
+         var activeChats = HelpChatCollection.find({createdDate:{$gte:dateLess24hr}},{sort: {_id: -1}});
 //Convert the cursor to an array.
          activeChatsArr = activeChats.fetch();
 //Sort the objects in the array by _id with this function.
@@ -42,7 +46,7 @@ ChatActiveListController.helpers({
          return activeChatsArr;
     }
 //    postCount: function() {
-//        return 
+//        return
 //    }
 });
 ChatActiveListController.events({

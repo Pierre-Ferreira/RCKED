@@ -6,7 +6,7 @@ HelpConfirmController.events({
 'click #helpConfirmButton': function(evt, tmpl){
     var documentVals = {
         initiator: Meteor.userId(),
-        createdDate: new Date,
+        createdDate: new Date(TimeSync.serverTime()), //Rather use the server time instead of client tiem (i.e. new Date);
         activeInd: true
     };
     console.log("documentVals:"+documentVals);
@@ -15,14 +15,10 @@ HelpConfirmController.events({
 // Get the next _id from helpChat collection.
         while (1) {
             var cursor = HelpChatCollection.find({});
-     //       var cursor = HelpChatCollection.find( {}, { _id: 1 } ).sort( { _id: -1 } ).limit(1);
-     //       console.log('hasNext(): '+cursor.hasNext());
-      //      console.log('next(): '+cursor.next());
             console.log('count(): '+cursor.count());
-     //       var seq = cursor.hasNext() ? cursor.next()._id + 1 : 1;
             seq = cursor.count()+1;
             doc._id = seq.toString();
-            Session.set("currPostID", seq.toString());
+            Session.set("currPostID", doc._id);
             console.log('Session.set("currPostID"):'+Session.get("currPostID"));
             var results = HelpChatCollection.insert(doc);
     //        if( results.hasWriteError() ) {
@@ -34,14 +30,16 @@ HelpConfirmController.events({
     //        }
             break;
         };
+        var postMessage = 'HELP!!';
         var firstPost = {
             postUserID: Meteor.userId(),
-            datetime: new Date,
-            postMessage: 'HELP!',
+            datetime: new Date(TimeSync.serverTime()),
+            postMessage: postMessage,
         }
         HelpChatCollection.update({_id: doc._id},{$push:{posts:firstPost}});
 // Call the SMS function
-        Meteor.call("sendPlivoSMS", postMessage, Meteor.userId());
+        var smsMessage = 'HELP!! \n ***(for more info follow chat #'+doc._id+' on community app)***';
+        Meteor.call("sendPlivoSMS", smsMessage, Meteor.userId());
     };
 
 //    Meteor.call('sendBatchSMS','NOTHING',function(err, results){

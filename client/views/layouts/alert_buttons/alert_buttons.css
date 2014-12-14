@@ -47,10 +47,11 @@ background-color: hsl(36, 100%, 28%) !important;
   -webkit-font-smoothing: antialiased;
 }
 .btn-dynamic-props {
-    height: 150px;
-    font-size: 50px;
+    height: 100px;
+    font-size: 30px;
     text-align: center;
     vertical-align: middle;
     padding-top:20px;
     line-height: normal;
+    margin-bottom: 5px;
 }

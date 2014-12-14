@@ -30,7 +30,7 @@ Meteor.methods({
          senderName = senderProfile.profile.userName;
          senderAddrNo = senderProfile.profile.userAddrNo;
          senderAddrStr = senderProfile.profile.userAddrStreet;
-         messageStr = senderName+" @ " +senderAddrNo+" "+senderAddrStr+":"+messageSMS;
+         messageStr = "("+senderName+" @ " +senderAddrNo+" "+senderAddrStr+"): "+messageSMS;
 //messageStr = messageSMS;
          var PlivoR = Meteor.require('plivo-node');
          plivo = PlivoR.RestAPI({
@@ -44,9 +44,9 @@ Meteor.methods({
             'type' : "sms",
         };
 console.log("messageStr:"+messageStr);
-        plivo.send_message(params, function (status, response) {
-            console.log('Status: ', status);
-            console.log('API Response:\n', response);
-        });
+//        plivo.send_message(params, function (status, response) {
+//            console.log('Status: ', status);
+//            console.log('API Response:\n', response);
+//        });
     }
 })

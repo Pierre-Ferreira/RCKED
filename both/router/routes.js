@@ -29,3 +29,7 @@ Router.route('/chat_active_list',{
     name: 'chat_active_list',
     controller: 'ChatActiveListController'
 })
+Router.route('/chat_old_list',{
+    name: 'chat_old_list',
+    controller: 'ChatOldListController'
+})
