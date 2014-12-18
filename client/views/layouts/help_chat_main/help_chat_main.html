@@ -1,11 +1,11 @@
-<template name='help_chat_main'>    
+<template name='help_chat_main'>
 <div class="container container-fluid">
     <div class="row chat-window col-xs-5 col-md-3" style="margin-left:0px;">
         <div class="col-xs-12 col-md-12">
         	<div class="panel panel-default">
                 <div class="panel-heading top-bar">
-                    <div class="col-md-8 col-xs-8"> 
-                        <div class="chatHeader">{{serverTime}} ***{{chatBgColor}}</div>
+                    <div class="col-md-8 col-xs-8">
+                        <div class="chatHeader">{{serverTime}}</div>
                         <h4 class="chatHeader" id="chatPostID">CHAT #{{postID}}</h4>
                         <div class="chatHeader" id ="initialTimeAgo">{{initialTimeAgo}}</div>
                         <div class="chatHeader" id="lastPostTimeAgo">{{lastPostTimeAgo}}</div>
@@ -15,9 +15,9 @@
                         <a href="#"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
                     </div>
                 </div>
-                <div class="panel-body msg_container_base" style="background-color:'';" id="chat_window_1">
+                <div class="panel-body msg_container_base" style="background:{{inPost.bgColor}};" id="chat_window_1">
                 {{#each posts}}
-                    {{#if isInitiatorPost}}    
+                    {{#if isInitiatorPost}}
                         <div class="row msg_container base_initiator">
                             <div class="col-md-10 col-xs-10">
                                 <div class="messageBubbleLeft msg_initiator">
@@ -26,6 +26,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h2>{{inPost.popup}}</h2>
                     {{else}}
                         <div class="row msg_container base_responder">
                             <div class="col-md-10 col-xs-10">
@@ -35,19 +36,20 @@
                                 </div>
                             </div>
                         </div>
+                        <h2>{{inPost.popup}}</h2>
                     {{/if}}
                 {{/each}}
                 </div>
                 <div style="text-align:center">
-                <form class="msgForm">   
-                    <small>Keep messages concise (max 100 chars)</small>    
+                <form class="msgForm">
+                    <small>Keep messages concise (max 100 chars)</small>
                         <div class="form-group">
                             <button class="btn btn-warning" id="clrMsg">X</button>
                             <textarea rows="4" cols="40" maxlength="100" placeholder = "Write your message here..." id="inputMsg"></textarea>
                             <button class="btn btn-success" id="sendMsg">^</button>
                         </div>
-                    <small>Guided Text (Autoload)</small> 
-                </form>  
+                    <small>Guided Text (Autoload)</small>
+                </form>
                 </div>
                 {{#if isInitiator}}
                     {{>initiatorOne}}
@@ -57,7 +59,7 @@
     		</div>
         </div>
     </div>
-</div>   
+</div>
 <div id="footer">
 Copyright © TektiteSE
 </div>

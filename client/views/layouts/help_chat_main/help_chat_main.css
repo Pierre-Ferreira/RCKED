@@ -9,11 +9,11 @@ body{
 }
 #inputMsg {
     margin: 1px;
-    width: 70%;   
+    width: 70%;
     font-size: 20px;
 }
 #clrMsg {
-    height: 75px;     
+    height: 75px;
     width: 10px;
     font-size: 10px;
 }
@@ -49,14 +49,6 @@ body{
   height: 190px;
   overflow-x:hidden;
 }
-.msg_container_base_class{
-  background: RED;
-  margin: 0;
-  padding: 0 10px 10px;
-  max-height:300px;
-  height: 190px;
-  overflow-x:hidden; 
-}
 .top-bar {
   text-align: center;
   background: #666;
@@ -73,7 +65,7 @@ body{
 }
 .msg_responder{
     margin-right:1px;
-    padding-bottom:1px !important;  
+    padding-bottom:1px !important;
 }
 .messageBubbleLeft {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -90,7 +82,7 @@ body{
     color: white;
 }
 
-.messageBubbleLeft:after 
+.messageBubbleLeft:after
 {
     content: '';
     position: absolute;
@@ -105,7 +97,7 @@ body{
     top: 60%;
 }
 
-.messageBubbleLeft:before 
+.messageBubbleLeft:before
 {
     content: '';
     position: absolute;
@@ -143,7 +135,7 @@ body{
     border-radius: 10px;
     border: #009DFF solid 2px;
 }
-.messageBubbleRight:after 
+.messageBubbleRight:after
 {
     content: '';
     position: absolute;
@@ -158,7 +150,7 @@ body{
     top: 60%;
 }
 
-.messageBubbleRight:before 
+.messageBubbleRight:before
 {
     content: '';
     position: absolute;

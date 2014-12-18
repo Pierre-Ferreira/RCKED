@@ -1,6 +1,6 @@
 Meteor.methods({
     'sendBatchSMS': function(smsBatchDetails){
-        smsBatchDetailsTEST = {            
+        smsBatchDetailsTEST = {
             "recipientNumber":"27823298718",
             "message":"TEST DATA.",
             "campaign":"e.g Optional campaign name"
@@ -18,8 +18,8 @@ Meteor.methods({
               to:'+27823298718',
               from: '+27875509063',
               body: 'Hi this is a test from Twilio.'
-            }, function(err, responseData) { 
-              if (err) { 
+            }, function(err, responseData) {
+              if (err) {
                 console.log(err)
               }
         });
@@ -44,9 +44,9 @@ Meteor.methods({
             'type' : "sms",
         };
 console.log("messageStr:"+messageStr);
-//        plivo.send_message(params, function (status, response) {
-//            console.log('Status: ', status);
-//            console.log('API Response:\n', response);
-//        });
+    //    plivo.send_message(params, function (status, response) {
+    //        console.log('Status: ', status);
+    //        console.log('API Response:\n', response);
+    //    });
     }
 })

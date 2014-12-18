@@ -6,6 +6,7 @@
     outline: 3px solid black;
     padding: 2px;
     margin-bottom: 7px;
+    background-color:red;
 }
 .chatNo{
     text-align: center;
@@ -18,10 +19,14 @@ div.inline {
 div.info {
     color: black;
     font-weight: bold;
+    font-size: 17px;
 }
 div.header{
     font-weight: bold;
     text-align: center;
     font-size: 25px;
     padding-bottom: 4px;
+}
+.heads{
+    color: white;
 }

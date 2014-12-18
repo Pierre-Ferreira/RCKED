@@ -33,3 +33,7 @@ Router.route('/chat_old_list',{
     name: 'chat_old_list',
     controller: 'ChatOldListController'
 })
+Router.route('/admin_users_create',{
+    name: 'admin_users_create',
+    controller: 'AdminUsersCreateController'
+})

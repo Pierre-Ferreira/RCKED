@@ -41,24 +41,25 @@ HelpChatMainController.helpers({
         }
         return posts;
     },
-    chatBgColor: function() {
+    inPost: function() {
         var helpPost = HelpChatCollection.findOne({_id: Session.get("currPostID")});
-//        var bgNewColor = helpPost.bgColor;
-//        console.log("bgNewColor:" +bgNewColor);
+        var bgNewColor = helpPost.bgColor;
+        var popupText = helpPost.popupText;
         var posts = helpPost.posts;
         var postCnt = posts.length;
         var lastPostUserID = posts[postCnt-1].postUserID;
         if (lastPostUserID !== Meteor.userId()) {
- //           setTimeout(function() {HelpChatCollection.update({_id: Session.get("currPostID")},{$set:{bgColor:"lightyellow"}});}, 2000);
-//            var clrSound = new buzz.sound('/sounds/beep7.mp3');
-//            clrSound.play();  
-        // Scroll to bottom of chat.
-//            $("#chat_window_1").animate({
-//              scrollTop:$("#chat_window_1")[0].scrollHeight - ($("#chat_window_1").height()-55)} ,1000 , 'swing', function(){});
+            var inPost = {
+                bgColor: bgNewColor,
+                popup: popupText
+            };
+        } else {
+            var inPost = {
+                bgColor: "",
+                popup: ""
+            };
         };
-//return new Spacebars.SafeString("<p>It's working!</p>");
-        return  '';
-
+        return inPost;
     },
     initialTimeAgo: function () {
         var helpPost = HelpChatCollection.findOne({_id:Session.get("currPostID")});
@@ -139,6 +140,11 @@ HelpChatMainController.events({
 // Scroll to bottom of chat.
             $("#chat_window_1").animate({
               scrollTop:$("#chat_window_1")[0].scrollHeight - ($("#chat_window_1").height()-55)} ,1000 , 'swing', function(){});
+//Update HelpChat collection background color in
+            HelpChatCollection.update({_id: Session.get("currPostID")},{$set:{bgColor:"RED",popupText:"***INCOMING***"}});
+            setTimeout(function() {HelpChatCollection.update({_id: Session.get("currPostID")},{$set:{bgColor:"",popupText:""}});}, 600);
+            // setTimeout(function() {HelpChatCollection.update({_id: Session.get("currPostID")},{$set:{bgColor:"GREEN"}});}, 5000);
+            // setTimeout(function() {HelpChatCollection.update({_id: Session.get("currPostID")},{$set:{bgColor:""}});}, 5000);
         }
     },
     'click .btnGuideTxt': function (evt, tmpl) {

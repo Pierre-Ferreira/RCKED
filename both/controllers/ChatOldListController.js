@@ -32,11 +32,13 @@ ChatOldListController.helpers({
              var initiatorID = oldChatsArr[i].initiator;
              var initiatorCursor = Meteor.users.findOne({_id: initiatorID});
              var initiatorName = initiatorCursor.profile.userName;
+             var initiatorSurname = initiatorCursor.profile.userSurname;
              var initiatorStrNo = initiatorCursor.profile.userAddrNo;
              var initiatorStrName = initiatorCursor.profile.userAddrStreet;
              var streetAddr = initiatorStrNo+' '+initiatorStrName;
              oldChatsArr[i].streetAddr = streetAddr;
              oldChatsArr[i].initiatorName = initiatorName;
+             oldChatsArr[i].initiatorSurname = initiatorSurname;
              var chatInitPostTime = new Date(clientDispTime(moment(oldChatsArr[i].createdDate)));
              var initPostTime = chatInitPostTime.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
              var initPostDate = chatInitPostTime.toDateString();

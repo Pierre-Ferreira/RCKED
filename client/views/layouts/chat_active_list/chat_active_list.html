@@ -3,12 +3,12 @@
     {{#each chatsInfo}}
     <div id={{_id}} class = "chats" >
         <a href="/help_chat_main">
-            <div class="chatNo">CHAT #{{_id}}</div>
-            <div>Initiator: <div class="inline info">{{initiatorName}}</div></div>
-            <div>From: <div class="inline info">{{streetAddr}}</div></div>
-            <div>Time: <div class="inline info">{{dispCreatedDate}}</div></div>
-            <div>No of Posts: <div class="inline info">{{chatPostsCnt}}</div></div>
-            <div>Last Post: <div class="inline info">{{dispLastPostDate}}</div></div>
+            <div class="chatNo heads">CHAT #{{_id}}</div>
+            <div><span class="heads">Initiator: </span><div class="inline info">{{initiatorName}} {{initiatorSurname}}</div></div>
+            <div><span class="heads">From: </span><div class="inline info">{{streetAddr}}</div></div>
+            <div><span class="heads">Time: </span><div class="inline info">{{dispCreatedDate}}</div></div>
+            <div><span class="heads">No of Posts: </span><div class="inline info">{{chatPostsCnt}}</div></div>
+            <div><span class="heads">Last Post: </span><div class="inline info">{{dispLastPostDate}}</div></div>
         </a>
     </div>
     {{/each}}
