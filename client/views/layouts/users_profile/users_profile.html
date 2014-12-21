@@ -4,106 +4,142 @@
         <form class="" role="form">
             <div class="row">
                 <div>
-                    <h4 for="" class="control-label">All fields are compulsory.</h4>
+                    <h4 class="control-label">All fields are compulsory.</h4>
                 </div>
                 <div>
-                    <label for="" class="control-label">Address:</label>
-                    <input type="text" class="form-control input-small" id="houseNo" placeholder="No..." value= "{{currentUser.addrNo}}" >
-                    <select id="streetName">
-                      <option value="">Street Name...</option>
-                      {{#if equals currentUser.addrStr "Topaz"}}
-                        <option value="Topaz" selected >Topaz</option>
-                      {{else}}
-                        <option value="Topaz">Topaz</option>
-                      {{/if}}
-                      {{#if equals currentUser.addrStr "Marble"}}
-                        <option value="Marble" selected >Marble</option>
-                      {{else}}
-                        <option value="Marble">Marble</option>
-                      {{/if}}
-                      {{#if equals currentUser.addrStr "Malachite"}}
-                        <option value="Malachite" selected >Malachite</option>
-                      {{else}}
-                        <option value="Malachite">Malachite</option>
-                      {{/if}}
-                      {{#if equals currentUser.addrStr "Jade"}}
-                        <option value="Jade" selected >Jade</option>
-                      {{else}}
-                        <option value="Jade">Jade</option>
-                      {{/if}}
-                      {{#if equals currentUser.addrStr "Silver"}}
-                        <option value="Silver" selected >Silver</option>
-                      {{else}}
-                        <option value="Silver">Silver</option>
-                      {{/if}}
-                    </select>
+                    RESIDENT ID: <h4 id="residentID" class="control-label">{{currentUser.residentID}}</h4>
                 </div>
-                 <div class="validCheck alert alert-danger" style="width:250px; display: none;" role="alert" id="addressValid" >
-                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                     Please enter all address information.
-                </div>
-                <div class="input-group">
-                    <label for="" class="control-label">Name:</label>
-                    <input type="text" class="form-control input-medium" id="userName" placeholder="Name..." value= "{{currentUser.name}}">
-                    <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="userNameValid" >
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        Please enter name.
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label for="" class="control-label">Surname:</label>
-                    <input type="text" class="form-control input-medium" id="userSurname" placeholder="Surname..." value= "{{currentUser.surname}}">
-                    <div class="validCheck alert alert-danger" style="width:200px; display: none; " role="alert" id="userSurnameValid" >
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        Please enter surname.
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label for="" class="control-label">Cell phone:</label>
-                    <input type="text" class="form-control" id="cellNo" placeholder="Cell No..." value= "{{currentUser.cell}}">
-                    <div class="validCheck alert alert-danger" style="width:200px; display: none; " role="alert" id="cellNoValid" >
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        Please enter cell no.
-                    </div>
-                </div>
-
-                <label class="control-label">Gender:</label>
-                <select id="gender">
-                  <option value="">Gender...</option>
-                    {{#if equals currentUser.gender "Male"}}
-                        <option value="Male" selected >Male</option>
-                    {{else}}
-                        <option value="Male" >Male</option>
-                    {{/if}}
-                    {{#if equals currentUser.gender "Female"}}
-                        <option value="Female" selected >Female</option>
-                    {{else}}
-                        <option value="Female" >Female</option>
-                    {{/if}}
-                </select>
-                <div class="validCheck alert alert-danger" style="width:200px; display: none; " role="alert" id="genderValid" >
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    Please enter gender.
-                </div>
-                 <div class="input-group">
-                     <div class="checkbox">
-                        <label>
-                          <input type="checkbox" id="smsSubscriber" checked="{{currentUser.smsSub}}"> Receive all help alerts via SMS (R50/mth).
-                        </label>
-                      </div>
-                 </div>
-                <div><button class="btn btn-lg btn-primary" type="submit" style="margin-bottom:5px">Update my profile</button></div>
-                <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="messageValid" >
-                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    ERRORS ON PAGE! - Please rectify.
-                </div>
-                <div class="validCheck alert alert-success" style="width:200px; display: none;" role="alert" id="messageSuccess" >
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    UPDATE SUCCESSFUL!
-                </div>
+                <div>{{>name_list}}</div>
+                <div>{{>surname_list}}</div>
+                <div>{{>cellNo_list}}</div>
             </div>
         </form>
         <a>(REPORT AN ISSUE)</a>
     </div>
  </div>
+</template>
+
+<template name="name_list">
+    <select id="residentNames">
+        <option value="">Your Name...</option>
+        {{#each residentNames}}
+            <option value="{{name}}">{{name}}</option>
+        {{/each}}
+    </select>
+</template>
+
+<template name="surname_list">
+    <select id="residentSurnames">
+        <option value="">Your Surname...</option>
+        {{#each residentSurnames}}
+        <option value="{{surname}}">{{surname}}</option>
+        {{/each}}
+    </select>
+</template>
+
+<template name="cellNo_list">
+    <select id="residentCellNos">
+        <option value="">Your Cell...</option>
+        {{#each residentCellNos}}
+        <option value="{{cellNo}}">{{cellNo}}</option>
+        {{/each}}
+    </select>
+</template>
+
+<template name="cell_input">
+    <div class="input-group">
+        <label for="" class="control-label">Cell phone:</label>
+        <input type="text" class="form-control" id="cellNo" placeholder="Cell No..." value= "{{currentUser.cell}}">
+        <div class="validCheck alert alert-danger" style="width:200px; display: none; " role="alert" id="cellNoValid" >
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Please enter cell no.
+        </div>
+    </div>
+</template>
+
+<template name="address_input">
+    <div>
+        <label for="" class="control-label">Address:</label>
+        <input type="text" class="form-control input-small" id="houseNo" placeholder="No..." value= "{{currentUser.addrNo}}" >
+        <select id="streetName">
+            <option value="">Street Name...</option>
+            {{#if equals currentUser.addrStr "Topaz"}}
+            <option value="Topaz" selected >Topaz</option>
+            {{else}}
+            <option value="Topaz">Topaz</option>
+            {{/if}}
+            {{#if equals currentUser.addrStr "Marble"}}
+            <option value="Marble" selected >Marble</option>
+            {{else}}
+            <option value="Marble">Marble</option>
+            {{/if}}
+            {{#if equals currentUser.addrStr "Malachite"}}
+            <option value="Malachite" selected >Malachite</option>
+            {{else}}
+            <option value="Malachite">Malachite</option>
+            {{/if}}
+            {{#if equals currentUser.addrStr "Jade"}}
+            <option value="Jade" selected >Jade</option>
+            {{else}}
+            <option value="Jade">Jade</option>
+            {{/if}}
+            {{#if equals currentUser.addrStr "Silver"}}
+            <option value="Silver" selected >Silver</option>
+            {{else}}
+            <option value="Silver">Silver</option>
+            {{/if}}
+        </select>
+    </div>
+</template>
+
+<template name="input_fields">
+
+        <div class="validCheck alert alert-danger" style="width:250px; display: none;" role="alert" id="addressValid" >
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Please enter all address information.
+        </div>
+        <div class="input-group">
+            <label for="" class="control-label">Name:</label>
+            <input type="text" class="form-control input-medium" id="userName" placeholder="Name..." value= "{{currentUser.name}}">
+            <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="userNameValid" >
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                Please enter name.
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="" class="control-label">Surname:</label>
+            <input type="text" class="form-control input-medium" id="userSurname" placeholder="Surname..." value= "{{currentUser.surname}}">
+            <div class="validCheck alert alert-danger" style="width:200px; display: none; " role="alert" id="userSurnameValid" >
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                Please enter surname.
+            </div>
+        </div>
+        <label class="control-label">Gender:</label>
+        <select id="gender">
+            <option value="">Gender...</option>
+            {{#if equals currentUser.gender "Male"}}
+            <option value="Male" selected >Male</option>
+            {{else}}
+            <option value="Male" >Male</option>
+            {{/if}}
+            {{#if equals currentUser.gender "Female"}}
+            <option value="Female" selected >Female</option>
+            {{else}}
+            <option value="Female" >Female</option>
+            {{/if}}
+        </select>
+        <div class="validCheck alert alert-danger" style="width:200px; display: none; " role="alert" id="genderValid" >
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Please enter gender.
+        </div>
+        <div><button class="btn btn-lg btn-primary" type="submit" style="margin-bottom:5px">Update my profile</button></div>
+        <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="messageValid" >
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            ERRORS ON PAGE! - Please rectify.
+        </div>
+        <div class="validCheck alert alert-success" style="width:200px; display: none;" role="alert" id="messageSuccess" >
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            UPDATE SUCCESSFUL!
+        </div>
+
 </template>
