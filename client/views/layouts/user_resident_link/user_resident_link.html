@@ -1,0 +1,89 @@
+<template name="user_resident_link">
+  <div class="container">
+    <div style="padding: 1px 1px 10px;">
+      <form class="" role="form">
+        <div class="row">
+          <div>
+            <h4 class="control-label">Please enter your details.</h4>
+          </div>
+          <div>
+            RESIDENT ID: <h4 id="residentID" class="control-label">{{currentUser.residentID}}</h4>
+          </div>
+          <div>{{>name_list}}</div>
+          <div>{{>surname_list}}</div>
+          <div>{{>cellNo_list}}</div>
+          <div>
+            {{#if equals residentFound false}}
+            {{>submit_search}}
+            {{else}}
+            {{>addr_confirm}}
+            {{/if}}
+          </div>
+        </div>
+      </form>
+      <a>(REPORT AN ISSUE)</a>
+    </div>
+  </div>
+</template>
+
+<template name="submit_search">
+  <div><button class="btn btn-lg btn-primary" type="submit" style="margin-bottom:5px" id="searchProfile">Search Profile</button></div>
+  <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="fieldsEnteredErr" >
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    ALL FIELDS MUST BE ENTERED!
+  </div>
+  <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="notFoundErr" >
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    NO SUCH PROFILE FOUND ON THE SYSTEM!
+  </div>
+  <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="profileLinkedErr" >
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    THIS PROFILE IS ALREADY LINKED TO AN USER!
+  </div>
+</template>
+
+<template name="addr_confirm">
+  <h4>Do you live here?:</h4>
+  <h3>#{{residentAddr.strNo}} {{residentAddr.strName}} street</h3>
+  <div><button class="btn btn-lg btn-primary" type="submit" style="margin-bottom:5px" id="yesLink">YES</button>
+    <button class="btn btn-lg btn-primary" type="submit" style="margin-bottom:5px" id="noLink">NO</button></div>
+  </template>
+
+  <template name="name_list">
+    <select id="residentNames">
+      <option value="">Your Name...</option>
+      {{#each residentNames}}
+      <option value="{{name}}">{{name}}</option>
+      {{/each}}
+    </select>
+    <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="residentNameErr" >
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      Select a name.
+    </div>
+  </template>
+
+  <template name="surname_list">
+    <select id="residentSurnames">
+      <option value="">Your Surname...</option>
+      {{#each residentSurnames}}
+      <option value="{{surname}}">{{surname}}</option>
+      {{/each}}
+    </select>
+    <div class="validCheck alert alert-danger" style="width:200px; display: none;" role="alert" id="residentSurnameErr" >
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      Select a surname.
+    </div>
+  </template>
+
+  <template name="cellNo_list">
+    <select id="residentCellNos">
+      <option value="">Your Cell...</option>
+      {{#each residentCellNos}}
+      <option value="{{cellNo}}">{{cellNo}}</option>
+      {{/each}}
+    </select>
+    <div class="validCheck alert alert-danger" style="width:200px; display: none; " role="alert" id="residentCellNoErr" >
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      Please enter cell no.
+    </div>
+  </template>

@@ -9,14 +9,16 @@
         <a class="btn btn-prevpost btn-block btn-dynamic-props "  href="/chat_old_list">OLD CHATS</a>
     </div>
     <div>
-        <h3><a href="/users_profile">USERS PROFILE.</a></h3>
+      <h3><a href="/resident_profile">RESIDENT PROFILE.</a></h3>
     </div>
-    <div>
-        <h3><a href="/admin_users_create">ADMIN USERS PROFILE.</a></h3>
-    </div>
-    <div>
-        <a href="AppUse">How to use this app.</a>
-    </div>
+    {{#if isAdmin}}
+      <div>
+        <h3><a href="/user_resident_link">LINK USER TO RESIDENT.</a></h3>
+      </div>
+      <div>
+        <h3><a href="/admin_residents_create">ADMIN USERS PROFILE.</a></h3>
+      </div>
+    {{/if}}
 <div id="footer">
 Copyright © TektiteSE.biz
 </div>

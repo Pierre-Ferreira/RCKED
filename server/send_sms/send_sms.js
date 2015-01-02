@@ -26,10 +26,12 @@ Meteor.methods({
     },
     'sendPlivoSMS':function(messageSMS, userID) {
          var messageStr = "";
-         senderProfile = Meteor.users.findOne({_id:userID});
-         senderName = senderProfile.profile.userName;
-         senderAddrNo = senderProfile.profile.userAddrNo;
-         senderAddrStr = senderProfile.profile.userAddrStreet;
+         var userCursor = Meteor.users.findOne({_id: userID});
+         var profileID = userCursor.profile.profileID;
+         var senderProfile = Residents.findOne({_id:profileID});
+         var senderName = senderProfile.profile.userName;
+         var senderAddrNo = senderProfile.profile.userAddrNo;
+         var senderAddrStr = senderProfile.profile.userAddrStreet;
          messageStr = "("+senderName+" @ " +senderAddrNo+" "+senderAddrStr+"): "+messageSMS;
 //messageStr = messageSMS;
          var PlivoR = Meteor.require('plivo-node');

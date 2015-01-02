@@ -1,1 +1,0 @@
-//Check for helpers and listeners in the controller.
