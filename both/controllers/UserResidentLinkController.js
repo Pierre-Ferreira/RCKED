@@ -125,9 +125,20 @@ function updateProfiles(residentID,userID) {
 };
 
 function DELETEME(){
-  var userTEMP = Meteor.users.findOne({_id:"Jm77ngttT4AaeRPxx"});
+  console.log("IN DELETEME");
+  var userTEMP = Meteor.users.findOne({_id:"h6vEMqcHrkAfLw9dq"});
   userTEMP.profile.type = "ADMIN";
   var userProfile = userTEMP.profile;
-  Meteor.users.update({_id:"Jm77ngttT4AaeRPxx"},{$set:{profile:userProfile}});
+  Meteor.users.update({_id:"h6vEMqcHrkAfLw9dq"},{$set:{profile:userProfile}});
+  console.log("DELETEME COMPLETED");
+  return;
+};
+
+function DELETEME2(){
+  console.log("IN DELETEME2");
+  // var userTEMP = Meteor.users.findOne({_id:"h6vEMqcHrkAfLw9dq"});
+  // userTEMP.profile.type = "ADMIN";
+  Meteor.users.update({_id:"h6vEMqcHrkAfLw9dq"},{$set:{profile:{type: "ADMIN"}}});
+  console.log("DELETEME2 COMPLETED");
   return;
 };

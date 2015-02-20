@@ -27,12 +27,12 @@ Meteor.methods({
     'sendPlivoSMS':function(messageSMS, userID) {
          var messageStr = "";
          var userCursor = Meteor.users.findOne({_id: userID});
-         var profileID = userCursor.profile.profileID;
-         var senderProfile = Residents.findOne({_id:profileID});
-         var senderName = senderProfile.profile.userName;
-         var senderAddrNo = senderProfile.profile.userAddrNo;
-         var senderAddrStr = senderProfile.profile.userAddrStreet;
-         messageStr = "("+senderName+" @ " +senderAddrNo+" "+senderAddrStr+"): "+messageSMS;
+         var residentID = userCursor.profile.residentID;
+         var residentCursor = Residents.findOne({_id:residentID});
+         var senderName = residentCursor.profile.name;
+         var senderAddrNo = residentCursor.profile.addrNo;
+         var senderAddrStreet = residentCursor.profile.addrStreet;
+         messageStr = "("+senderName+" @ " +senderAddrNo+" "+senderAddrStreet+"): "+messageSMS;
 //messageStr = messageSMS;
          var PlivoR = Meteor.require('plivo-node');
          plivo = PlivoR.RestAPI({
@@ -46,9 +46,20 @@ Meteor.methods({
             'type' : "sms",
         };
 console.log("messageStr:"+messageStr);
-    //    plivo.send_message(params, function (status, response) {
-    //        console.log('Status: ', status);
-    //        console.log('API Response:\n', response);
-    //    });
+       plivo.send_message(params, function (status, response) {
+           console.log('Status: ', status);
+           console.log('API Response:\n', response);
+       });
+       var params = {
+         'src': '27821234567', // Caller Id
+         'dst' : '27824933425', // User Number to Call
+         'text' : messageStr,
+         'type' : "sms",
+       };
+       console.log("messageStr:"+messageStr);
+       plivo.send_message(params, function (status, response) {
+         console.log('Status: ', status);
+         console.log('API Response:\n', response);
+       });
     }
 })
